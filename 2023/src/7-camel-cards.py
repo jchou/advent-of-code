@@ -54,10 +54,8 @@ def get_hand_value(hand: str, is_joker_wild=False) -> tuple:
                             hands.append(new_hand)
             i += 1
 
-    if is_joker_wild is True:
-        return (highest_hand_type,) + tuple(CARD_VALUES_WITH_WILD_JOKER[card] for card in hand)
-    else:
-        return (highest_hand_type,) + tuple(CARD_VALUES[card] for card in hand)
+    card_values = CARD_VALUES_WITH_WILD_JOKER if is_joker_wild else CARD_VALUES
+    return (highest_hand_type,) + tuple(card_values[card] for card in hand)
 
 
 def part1(hands_and_bids: str, is_joker_wild=False) -> int:
