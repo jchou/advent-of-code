@@ -1,6 +1,3 @@
-import copy
-from pathlib import Path
-
 """
 --- Day 13: Point of Incidence ---
 With your help, the hot springs team locates an appropriate spring which launches you neatly and precisely up to the edge of Lava Island.
@@ -62,6 +59,9 @@ To summarize your pattern notes, add up the number of columns to the left of eac
 
 Find the line of reflection in each of the patterns in your notes. What number do you get after summarizing all of your notes?
 """
+
+import copy
+from pathlib import Path
 
 
 def get_reflection_summary(island: list[str]) -> list[int]:
