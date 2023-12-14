@@ -1,6 +1,3 @@
-import math
-from pathlib import Path
-
 """
 --- Day 8: Haunted Wasteland ---
 You're still riding a camel across Desert Island when you spot a sandstorm quickly approaching. When you turn to warn the Elf, she disappears before your eyes! To be fair, she had just finished warning you about ghosts a few minutes ago.
@@ -32,10 +29,6 @@ AAA = (BBB, BBB)
 BBB = (AAA, ZZZ)
 ZZZ = (ZZZ, ZZZ)
 Starting at AAA, follow the left/right instructions. How many steps are required to reach ZZZ?
-
-Your puzzle answer was 20093.
-
-The first half of this puzzle is complete! It provides one gold star: *
 
 --- Part Two ---
 The sandstorm is upon you and you aren't any closer to escaping the wasteland. You had the camel follow the instructions, but you've barely left your starting position. It's going to take significantly more steps to escape!
@@ -69,6 +62,9 @@ So, in this example, you end up entirely on nodes that end in Z after 6 steps.
 
 Simultaneously start on every node that ends with A. How many steps does it take before you're only on nodes that end with Z?
 """
+
+import math
+from pathlib import Path
 
 
 def part1(instructions: str, nodes: str) -> int:
@@ -117,7 +113,7 @@ def part2(instructions: str, nodes: str) -> int:
 
 
 if __name__ == '__main__':
-    input_text = Path("../inputs/8.txt").read_text()
+    input_text = Path("../inputs/08.txt").read_text()
     my_instructions, my_network = input_text.split("\n\n")
     my_nodes = my_network.splitlines()
 

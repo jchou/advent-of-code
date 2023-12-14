@@ -1,7 +1,3 @@
-import copy
-import operator
-from pathlib import Path
-
 """
 --- Day 10: Pipe Maze ---
 You use the hang glider to ride the hot air from Desert Island all the way up to the floating metal island. This island is surprisingly cold and there definitely aren't any thermals to glide on, so you leave your hang glider behind.
@@ -189,6 +185,10 @@ In this last example, 10 tiles are enclosed by the loop.
 
 Figure out whether you have time to search for the nest by calculating the area within the loop. How many tiles are enclosed by the loop?
 """
+
+import copy
+import operator
+from pathlib import Path
 
 
 def move(coords: tuple[int, int], direction: tuple[int, int]) -> tuple[int, int]:
