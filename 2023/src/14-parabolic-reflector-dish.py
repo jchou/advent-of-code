@@ -1,6 +1,3 @@
-import collections
-from pathlib import Path
-
 """
 --- Day 14: Parabolic Reflector Dish ---
 You reach the place where all of the mirrors were pointing: a massive parabolic reflector dish attached to the side of another large mountain.
@@ -102,6 +99,9 @@ In the above example, after 1000000000 cycles, the total load on the north suppo
 Run the spin cycle for 1000000000 cycles. Afterward, what is the total load on the north support beams?
 """
 
+import collections
+from pathlib import Path
+
 
 def tilt_north(rows: list[str]) -> list[str]:
     columns = []
@@ -113,8 +113,8 @@ def tilt_north(rows: list[str]) -> list[str]:
         num_rocks = 0
         for i, space in enumerate(column):
             if space == "#":
-                column = column[:last_cube_index + 1] + ("." * (i - last_cube_index - 1 - num_rocks)) + (
-                        "O" * num_rocks) + column[i:]
+                new_spaces_and_rocks = ("." * (i - last_cube_index - 1 - num_rocks)) + ("O" * num_rocks)
+                column = column[:last_cube_index + 1] + new_spaces_and_rocks + column[i:]
                 last_cube_index = i
                 num_rocks = 0
             elif space == "O":
@@ -122,7 +122,7 @@ def tilt_north(rows: list[str]) -> list[str]:
 
         # Prepare to transpose back to a column (rotate counterclockwise)
         # Remove the "#" added earlier
-        columns.append(column[:-1:])
+        columns.append(column[:-1])
     return rotate_clockwise(columns[::-1])[::-1]
 
 
